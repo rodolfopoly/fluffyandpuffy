@@ -29,6 +29,34 @@ function Login(props) {
     });
   };
 
+  return (
+    <div className="container my-1">
+      <Link to="/signup">← Go to Signup</Link>
+
+      <h2>Login</h2>
+      <form onSubmit={handleFormSubmit}>
+      <div className="flex-row space-between my-2">
+          <label for="input-group-1" class="block mb-2 text-sm font-medium">Username</label>
+          <input
+            class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+            placeholder="Username">
+            onChange={handleChange}
+          </input> 
+        </div> 
+        <div className="flex-row space-between my-2">
+        <label for="input-group-1" class="block mb-2 text-sm font-medium">Password</label>
+          <input
+           class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+           placeholder="Password">
+            onChange={handleChange}
+          </input>
+        </div>
+        <div className="flex-row flex-end">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  );
   
 }
 
