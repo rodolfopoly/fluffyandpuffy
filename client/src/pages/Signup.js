@@ -30,41 +30,76 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/login">Login</Link>
-
-      <h2>Signup</h2>
-      <form onSumbit={handleFormSubmit}>
-      <div className="flex-row space-between my-2">
-          <label for="input-group-1" class="block mb-2 text-sm font-medium">Email</label>
-          <input
-            class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-            placeholder="Email">
-            onChange={handleChange}
-          </input> 
-        </div>
-        <div className="flex-row space-between my-2">
-        <label for="input-group-1" class="block mb-2 text-sm font-medium">Username</label>
-          <input
-            class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-            placeholder="Username">
-            onChange={handleChange}
-          </input>
-        </div>
-        <div className="flex-row space-between my-2">
-        <label for="input-group-1" class="block mb-2 text-sm font-medium">Password</label>
-          <input
-           class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-           placeholder="Password">
-            onChange={handleChange}
-          </input>
-        </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+    <React.Fragment>
+        <Button onClick={onClick}>
+          SIGN UP
+        </Button>
+        <Modal
+          show={false}
+          size="md"
+          popup={true}
+          onClose={onClose}
+        >
+          <Modal.Header />
+          <Modal.Body>
+            <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
+              <h3 className="text-xl font-medium text-[#dce73f] dark:text-white">
+                SIGN UP AND ORDER
+              </h3>
+              <div>
+                <div className="mb-2 block">
+                  <Label
+                    htmlFor="email"
+                    value="Email"
+                  />
+                </div>
+                <TextInput
+                  id="email"
+                  placeholder="name@email.com"
+                  required={true}
+                />
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label
+                    htmlFor="username"
+                    value="Username"
+                  />
+                </div>
+                <TextInput
+                  id="username"
+                  placeholder="Username"
+                  required={true}
+                />
+              </div>
+              <div>
+                <div className="mb-2 block">
+                  <Label
+                    htmlFor="password"
+                    value="Password"
+                  />
+                </div>
+                <TextInput
+                  id="password"
+                  type="Password"
+                  required={true}
+                />
+              </div>
+              <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
+                Already a member?
+                <a
+                  href="/modal"
+                  className="text-blue-700 hover:underline dark:text-blue-500"
+                >
+                  Log In
+                </a>
+              </div>
+            </div>
+          </Modal.Body>
+        </Modal>
+    </React.Fragment>
   );
+
 
 }  
 
