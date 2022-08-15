@@ -4,6 +4,7 @@ import { Dropdown } from "flowbite-react";
 import { Avatar } from "flowbite-react";
 import { Button } from "flowbite-react";
 import CategoryMenu from "../CategoryMenu";
+import Login from "../../pages/Login";
 function Nav() {
     const hello = false;
     if (hello) {
@@ -71,9 +72,7 @@ function Nav() {
             </span>
           </Navbar.Brand>
           <div className="flex md:order-2">
-            <Button color="purple">
-              Purple
-            </Button>
+            <Login/>
           </div>
           <Navbar.Collapse>
           <CategoryMenu/>

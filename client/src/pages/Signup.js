@@ -33,75 +33,72 @@ function Signup(props) {
     });
   };
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <React.Fragment>
-        {/* <Button onClick={onClick}>
-          SIGN UP
-        </Button> */}
-        <Modal
-          show={false}
-          size="md"
-          popup={true}
-          //onClose={onClose}
-        >
-          <Modal.Header />
-          <Modal.Body>
-            <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
-              <h3 className="text-xl font-medium text-[#dce73f] dark:text-white">
-                SIGN UP AND ORDER
-              </h3>
-              <div>
-                <div className="mb-2 block">
-                  <Label
-                    htmlFor="email"
-                    value="Email"
-                  />
-                </div>
-                <TextInput
-                  id="email"
-                  placeholder="name@email.com"
-                  required={true}
-                />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label
-                    htmlFor="username"
-                    value="Username"
-                  />
-                </div>
-                <TextInput
-                  id="username"
-                  placeholder="Username"
-                  required={true}
-                />
-              </div>
-              <div>
-                <div className="mb-2 block">
-                  <Label
-                    htmlFor="password"
-                    value="Password"
-                  />
-                </div>
-                <TextInput
-                  id="password"
-                  type="Password"
-                  required={true}
-                />
-              </div>
-              <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                Already a member?
-                <a
-                  href="/modal"
-                  className="text-blue-700 hover:underline dark:text-blue-500"
-                >
-                  Log In
-                </a>
-              </div>
+    <Button onClick={handleShow}>
+      Toggle modal
+    </Button>
+    <Modal
+      show={show}
+      size="md"
+      popup={true}
+      onClose={handleClose}
+    >
+      <Modal.Header />
+      <Modal.Body>
+        <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
+          <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+            Sign in to our platform
+          </h3>
+          <div>
+            <div className="mb-2 block">
+              <Label
+                htmlFor="email"
+                value="Your email"
+              />
             </div>
-          </Modal.Body>
-        </Modal>
-    </React.Fragment>
+            <TextInput
+              id="email"
+              placeholder="name@company.com"
+              required={true}
+            />
+          </div>
+          <div>
+            <div className="mb-2 block">
+              <Label
+                htmlFor="password"
+                value="Your password"
+              />
+            </div>
+            <TextInput
+              id="password"
+              type="password"
+              required={true}
+            />
+          </div>
+          <div className="w-full">
+            <Button>
+              Log in to your account
+            </Button>
+          </div>
+          <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
+            Not registered?{' '}
+            <a
+              href="/modal"
+              className="text-blue-700 hover:underline dark:text-blue-500"
+            >
+              <Signup/>
+            </a>
+          </div>
+        </div>
+      </Modal.Body>
+    </Modal>
+  </React.Fragment>
   );
 
 
