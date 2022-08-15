@@ -3,7 +3,7 @@ import { Card } from "flowbite-react/lib/esm/components";
 import { useStoreContext } from "../../utils/GlobalState";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS, QUERY_ALL_PRODUCTS } from "../../utils/queries";
-import { UPDATE_PRODUCTS } from "../../utils/action";
+import { UPDATE_PRODUCTS } from "../../utils/actions";
 function ProductList() {
   const [state, dispatch] = useStoreContext();
   const { currentCategory } = state;

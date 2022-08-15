@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useQuery } from '@apollo/client';
-import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/action'
+import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions'
 import { useStoreContext } from '../../utils/GlobalState'
 import { Navbar } from "flowbite-react/lib/esm/components";
 import { QUERY_CATEGORIES } from "../../utils/queries";

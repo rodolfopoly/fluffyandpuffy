@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
+import { Button } from 'flowbite-react';
+import { Modal } from 'flowbite-react';
+import { Label } from 'flowbite-react';
+import { TextInput } from 'flowbite-react';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
@@ -31,14 +35,14 @@ function Login(props) {
 
   return (
     <React.Fragment>
-        <Button onClick={onClick}>
+        {/* <Button onClick={onClick}>
           LOG IN
-        </Button>
+        </Button> */}
         <Modal
           show={false}
           size="md"
           popup={true}
-          onClose={onClose}
+          //onClose={onClose}
         >
           <Modal.Header />
           <Modal.Body>
