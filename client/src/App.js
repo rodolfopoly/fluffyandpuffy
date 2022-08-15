@@ -8,6 +8,7 @@ import {
 } from '@apollo/client';
 import { setContext} from '@apollo/client/link/context';
 
+import Detail from './pages/Detail';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
@@ -61,6 +62,10 @@ function App() {
               <Route 
                 path="/success" 
                 element={<Success />} 
+              />
+              <Route 
+                path="/products/:id" 
+                element={<Detail />} 
               />
               <Route 
                 path="*" 

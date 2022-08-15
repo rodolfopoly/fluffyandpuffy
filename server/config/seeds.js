@@ -16,7 +16,7 @@ db.once('open', async () => {
     const products = await Product.insertMany([
         {
           name: 'Strawberry Short Cake',
-          image: 'Straberry-short-cake.jpg',
+          image: 'Strawberry-cake.jpg',
           category: categories[0]._id,
           price: 29.99,
 

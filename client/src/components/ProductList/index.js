@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import { Card } from "flowbite-react/lib/esm/components";
+//import { Card } from "flowbite-react/lib/esm/components";
 import { useStoreContext } from "../../utils/GlobalState";
 import { useQuery } from "@apollo/client";
-import { QUERY_PRODUCTS, QUERY_ALL_PRODUCTS } from "../../utils/queries";
+import { QUERY_PRODUCTS } from "../../utils/queries";
 import { UPDATE_PRODUCTS } from "../../utils/actions";
 import ProductItem from "../ProductItem";
 function ProductList() {
   const [state, dispatch] = useStoreContext();
   const { currentCategory } = state;
-  const { data } = useQuery(QUERY_ALL_PRODUCTS);
+  const { data } = useQuery(QUERY_PRODUCTS);
   useEffect(() => {
     if (data) {
       dispatch({
@@ -26,10 +26,9 @@ function ProductList() {
   return (
     <div>
       {state.products.length ? (
-        <div className="grid grid-cols-4 ">
+        <div className="grid grid-cols-4 gap-6 " >
           {filterProducts().map((product) => (
-            <Card
-            >
+           
               <ProductItem
               key={product._id}
               _id={product._id}
@@ -37,7 +36,6 @@ function ProductList() {
               name={product.name}
               price={product.price}
               quantity={product.quantity}/>
-            </Card>
           ))}
         </div>
       ) : (
