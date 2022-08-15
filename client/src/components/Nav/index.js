@@ -5,7 +5,7 @@ import { Avatar } from "flowbite-react";
 import { Button } from "flowbite-react";
 import CategoryMenu from "../CategoryMenu";
 function Nav() {
-    const hello = true;
+    const hello = false;
     if (hello) {
       return (
         <Navbar
@@ -76,18 +76,7 @@ function Nav() {
             </Button>
           </div>
           <Navbar.Collapse>
-            <Navbar.Link>
-              Cakes
-            </Navbar.Link>
-            <Navbar.Link href="/navbars">
-              Cookies
-            </Navbar.Link>
-            <Navbar.Link href="/navbars">
-              Cupcakes
-            </Navbar.Link>
-            <Navbar.Link href="/navbars">
-              Mini Desserts
-            </Navbar.Link>
+          <CategoryMenu/>
           </Navbar.Collapse>
         </Navbar>
       )
