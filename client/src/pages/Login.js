@@ -6,7 +6,7 @@ import { Modal } from 'flowbite-react';
 import { Label } from 'flowbite-react';
 import { TextInput } from 'flowbite-react';
 import { LOGIN } from '../utils/mutations';
-//import Signup from './Signup';
+import Signup from './Signup';
 import Auth from '../utils/auth';
 
 function Login(props) {
@@ -14,7 +14,7 @@ function Login(props) {
   const [formUsername, setFormUsername] = useState();
   const [formPassword, setFormPassword] = useState();
 
-  const [login, { error }] = useMutation(LOGIN);
+  const [login] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -36,7 +36,6 @@ function Login(props) {
   const handleChangePassword = (event) => {
     const { name, value } = event.target;
     setFormPassword(value)
-    console.log(value);
   };
 
 
@@ -47,7 +46,7 @@ function Login(props) {
 
 
   return (
-    <React.Fragment>
+    <React.Fragment >
       <Button onClick={handleShow}>
         Login
       </Button>
@@ -100,7 +99,7 @@ function Login(props) {
             <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
               Not registered?{' '}
               <button>
-              <Link to="/Signup">Signup</Link>
+              <Signup/>
               </button>              
             </div>
           </div>

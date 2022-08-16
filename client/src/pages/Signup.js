@@ -51,9 +51,9 @@ function Signup(props) {
 
   return (
     <React.Fragment>
-      <Button onClick={handleShow}>
+      <button onClick={handleShow}>
         Sign Up
-      </Button>
+      </button>
       <Modal
         show={show}
         size="md"
@@ -115,10 +115,6 @@ function Signup(props) {
               </Button>
             </div>
             <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-              Not registered?{' '}
-              <button>
-                <Link to="/Signup">Login</Link>
-              </button>
             </div>
           </div>
         </Modal.Body>

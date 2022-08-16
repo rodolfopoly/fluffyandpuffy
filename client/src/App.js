@@ -16,7 +16,7 @@ import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
-
+import FooterMenu from './components/Footer';
 const httpLink = createHttpLink({
   uri:'/graphql'
 });
@@ -43,17 +43,13 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div className="bg-indigo-100">
           <StoreProvider>
             <Nav />
             <Routes>
               <Route 
                 path="/" 
                 element={<Home />} 
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
               />
               <Route 
                 path="/success" 
@@ -68,6 +64,7 @@ function App() {
                 element={<NoMatch />} 
               />
             </Routes>
+            <FooterMenu/>
           </StoreProvider>
         </div>
       </Router>

@@ -17,21 +17,38 @@ function ProductList() {
       })
     }
   }, [data, dispatch])
-  console.log(currentCategory);
   function filterProducts() {
     if (!currentCategory) {
-      return state.products;
+      const arr = state.products;
+
+      const uniqueIds = [];
+
+      const uniqueProducts = arr.filter(element => {
+        const isDuplicate = uniqueIds.includes(element.name);
+    
+        if (!isDuplicate) {
+          uniqueIds.push(element.name);
+    
+          return true;
+        }
+    
+        return false;
+      });
+    
+      // 👇️ [{id: 1, name: 'Tom'}, {id: 2, name: 'Nick'}]
+      return uniqueProducts
     }
 
-    return state.products.filter(product => 
+    return state.products.filter(product =>
       product.category._id === currentCategory)
   }
 
 
   return (
     <div>
+      <h1 className="text-7xl text-center mb-10">Products</h1>
       {state.products.length ? (
-        <div className="grid grid-cols-4 gap-6 " >
+        <div className="grid grid-cols-4 gap-6 pb-4" >
           {filterProducts().map((product) => (
 
             <ProductItem

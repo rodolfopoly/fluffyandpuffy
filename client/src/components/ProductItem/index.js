@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
-
+import Auth from "../../utils/auth";
+import Login from "../../pages/Login";
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
 
@@ -18,6 +19,7 @@ function ProductItem(item) {
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id)
+
     if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
@@ -32,22 +34,23 @@ function ProductItem(item) {
     }
   }
 
-  return (
-    <div class="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-      <Link to={`/products/${_id}`}>
-        <img class="p-8 rounded-t-lg" src={`/images/${image}`} alt="product image"/>
-      </Link>
-      <div class="px-5 pb-5">
-        <a href="#">
-          <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{name}</h5>
-        </a>
-        <div class="flex justify-between items-center">
-          <span class="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
-          <button onClick={addToCart} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
+
+    return (
+      <div class="w-full  max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <Link to={`/products/${_id}`}>
+          <img class="p-8 rounded-t-lg max-h-96 min-w-full" src={`/images/${image}`} alt="product image" />
+        </Link>
+        <div class="px-5 pb-5">
+          <a href="#">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{name}</h5>
+          </a>
+          <div class="flex justify-between items-center">
+            <span class="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
+            <button onClick={addToCart} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
 }
 
 export default ProductItem;
