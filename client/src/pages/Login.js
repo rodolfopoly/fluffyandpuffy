@@ -10,14 +10,17 @@ import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 function Login(props) {
-  const [formState, setFormState] = useState({ username: '', password: '' });
+
+  const [formUsername, setFormUsername] = useState();
+  const [formPassword, setFormPassword] = useState();
+
   const [login, { error }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
       const mutationResponse = await login({
-        variables: { username: formState.username, password: formState.password },
+        variables: { username: formUsername, password: formPassword },
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
@@ -26,12 +29,14 @@ function Login(props) {
     }
   };
 
-  const handleChange = (event) => {
+  const handleChangeUsername = (event) => {
     const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    setFormUsername(value)
+  };
+  const handleChangePassword = (event) => {
+    const { name, value } = event.target;
+    setFormPassword(value)
+    console.log(value);
   };
 
 
@@ -61,14 +66,15 @@ function Login(props) {
             <div>
               <div className="mb-2 block">
                 <Label
-                  htmlFor="email"
-                  value="Your email"
+                  htmlFor="username"
+                  value="Your username"
                 />
               </div>
               <TextInput
-                id="email"
-                placeholder="name@company.com"
+                id="username"
+                placeholder="fluffyandpuffy"
                 required={true}
+                onChange={handleChangeUsername}
               />
             </div>
             <div>
@@ -82,10 +88,12 @@ function Login(props) {
                 id="password"
                 type="password"
                 required={true}
+                onChange={handleChangePassword}
               />
             </div>
             <div className="w-full">
-              <Button>
+              <Button 
+              onClick={handleFormSubmit}>
                 Log in to your account
               </Button>
             </div>

@@ -11,30 +11,38 @@ import { ADD_USER } from '../utils/mutations';
 import { Link } from 'react-router-dom';
 
 function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formEmail, setFormEmail] = useState();
+  const [formUsername, setFormUsername] = useState();
+  const [formPassword, setFormPassword] = useState();
+
   const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
+        email: formEmail,
+        password: formPassword,
+        username: formUsername
       },
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   };
 
-  const handleChange = (event) => {
+  const handleChangeEmail = (event) => {
     const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    setFormEmail(value)
   };
+  const handleChangeUsername = (event) => {
+    const { name, value } = event.target;
+    setFormUsername(value)
+  };
+  const handleChangePassword = (event) => {
+    const { name, value } = event.target;
+    setFormPassword(value)
+  };
+
 
   const [show, setShow] = useState(false);
 
@@ -69,6 +77,7 @@ function Signup(props) {
                 id="username"
                 placeholder="fluffyandpuffy"
                 required={true}
+                onChange={handleChangeUsername}
               />
             </div>
             <div>
@@ -82,6 +91,7 @@ function Signup(props) {
                 id="email"
                 placeholder="name@fluffyandpuffy.com"
                 required={true}
+                onChange={handleChangeEmail}
               />
             </div>
             <div>
@@ -95,18 +105,20 @@ function Signup(props) {
                 id="password"
                 type="password"
                 required={true}
+                onChange={handleChangePassword}
               />
             </div>
             <div className="w-full">
-              <Button>
+              <Button
+                onClick={handleFormSubmit}>
                 Sign Up
               </Button>
             </div>
             <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
               Not registered?{' '}
               <button>
-              <Link to="/Signup">Login</Link>
-              </button>              
+                <Link to="/Signup">Login</Link>
+              </button>
             </div>
           </div>
         </Modal.Body>

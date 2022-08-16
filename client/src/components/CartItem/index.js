@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
-import { REMOVE_ITEM, UPDATE_CART_QUANTITY } from "../../utils/actions";
+import { REMOVE_ITEM, REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 
 const CartItem = ({ item }) => {
 
@@ -8,7 +8,7 @@ const CartItem = ({ item }) => {
 
   const removeItem = item => {
     dispatch({
-      type: REMOVE_ITEM,
+      type: REMOVE_FROM_CART,
       _id: item._id
     });
   };

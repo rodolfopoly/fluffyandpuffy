@@ -26,16 +26,18 @@ function CategoryMenu() {
     }, [categoryData, dispatch]);
 
     const handleClick = (id) => {
+        console.log(id);
         dispatch({
             type: UPDATE_CURRENT_CATEGORY,
             currentCategory: id,
         });
+        console.log(state);
     };
 
     return (
         <>
             {categories.map((item) => (
-                <li>
+                <button>
                 <a
                     key={item._id}
                     onClick={() => {
@@ -44,7 +46,7 @@ function CategoryMenu() {
                 >
                     {item.name}
                     </a>
-                </li>
+                </button>
             ))}
         </>
     );

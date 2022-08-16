@@ -13,7 +13,7 @@ import cookiesTwoShowcase from '../../assets/cookie-letter.jpg'
 import cookiesThreeShowcase from '../../assets/Baby-shower-cookie.jpg'
 function Showcase() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-2 mr-10 ml-10">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-2 mr-10 ml-10 mt-36">
       <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel slide={false}>
           <img

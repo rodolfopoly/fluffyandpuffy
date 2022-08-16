@@ -7,9 +7,10 @@ import CategoryMenu from "../CategoryMenu";
 import Login from "../../pages/Login";
 import Signup from "../../pages/Signup";
 import logo from '../../assets/fluffyandpuffy-logo.png'
+import Cart from "../Cart";
+import Auth from "../../utils/auth";
 function Nav() {
-  const hello = false;
-  if (hello) {
+  if (Auth.loggedIn()) {
     return (
       <Navbar
         fluid={true}
@@ -40,13 +41,11 @@ function Nav() {
               </span>
             </Dropdown.Header>
             <Dropdown.Item>
-              Cart
-            </Dropdown.Item>
-            <Dropdown.Item>
-              Saved Items
+              <Cart/>
             </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item>
+            <Dropdown.Item
+            onClick={() => Auth.logout()}>
               Sign out
             </Dropdown.Item>
           </Dropdown>

@@ -17,25 +17,30 @@ function ProductList() {
       })
     }
   }, [data, dispatch])
+  console.log(currentCategory);
   function filterProducts() {
     if (!currentCategory) {
       return state.products;
     }
-    return state.products.filter(product => product.category._id === currentCategory)
+
+    return state.products.filter(product => 
+      product.category._id === currentCategory)
   }
+
+
   return (
     <div>
       {state.products.length ? (
         <div className="grid grid-cols-4 gap-6 " >
           {filterProducts().map((product) => (
-           
-              <ProductItem
+
+            <ProductItem
               key={product._id}
               _id={product._id}
               image={product.image}
               name={product.name}
               price={product.price}
-              quantity={product.quantity}/>
+            />
           ))}
         </div>
       ) : (
