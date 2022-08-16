@@ -91,9 +91,9 @@ function Login(props) {
             </div>
             <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
               Not registered?{' '}
-              <Button>
+              <button>
               <Link to="/Signup">Signup</Link>
-              </Button>              
+              </button>              
             </div>
           </div>
         </Modal.Body>

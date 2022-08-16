@@ -33,18 +33,20 @@ function CategoryMenu() {
     };
 
     return (
-        <div>
+        <>
             {categories.map((item) => (
-                <Navbar
+                <li>
+                <a
                     key={item._id}
                     onClick={() => {
                         handleClick(item._id);
                     }}
                 >
                     {item.name}
-                </Navbar>
+                    </a>
+                </li>
             ))}
-        </div>
+        </>
     );
 }
 
