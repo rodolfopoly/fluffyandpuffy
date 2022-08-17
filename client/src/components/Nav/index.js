@@ -2,14 +2,11 @@ import React from "react";
 import { Navbar } from "flowbite-react";
 import { Dropdown } from "flowbite-react";
 import { Avatar } from "flowbite-react";
-import { Button } from "flowbite-react";
 import CategoryMenu from "../CategoryMenu";
 import Login from "../../pages/Login";
-import Signup from "../../pages/Signup";
 import logo from '../../assets/fluffyandpuffy-logo.png'
 import Cart from "../Cart";
 import Auth from "../../utils/auth";
-import Home from "../../pages/Home";
 import loginImage from '../../assets/la duena.PNG'
 import { useStoreContext } from "../../utils/GlobalState";
 import { useQuery } from "@apollo/client";
@@ -48,7 +45,7 @@ function Nav(item) {
         <Navbar.Brand href="/">
           <img
             src={logo}
-            class="sm:h-20"
+            class="h-8 sm:h-2"
             alt="Fluffy and Puffy Logo"
           />
         </Navbar.Brand>
@@ -87,7 +84,7 @@ function Nav(item) {
       <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
           <a href="/" class="flex items-center">
-            <img src={logo} class="sm:h-20" alt="Fluffy and Puffy Logo" />
+            <img src={logo} class="sm:h-8 lg:h-20 md:h-12 h-12" alt="Fluffy and Puffy Logo" />
           </a>
           <div class="flex gap-2 md:order-2">
             <button><Login /></button>

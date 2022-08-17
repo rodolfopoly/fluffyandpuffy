@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-//import { Card } from "flowbite-react/lib/esm/components";
 import { useStoreContext } from "../../utils/GlobalState";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
@@ -46,9 +45,9 @@ function ProductList() {
 
   return (
     <div>
-      <h1 className="text-7xl text-center mb-10">Products</h1>
+      <h1 className="text-7xl text-center mb-10 mt-36 sm:mt-10">Products</h1>
       {state.products.length ? (
-        <div className="grid grid-cols-4 gap-6 pb-4" >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ml-8 gap-6 pb-4" >
           {filterProducts().map((product) => (
 
             <ProductItem

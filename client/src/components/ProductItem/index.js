@@ -2,9 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
-import { idbPromise } from "../../utils/helpers";
 import Auth from "../../utils/auth";
-import Login from "../../pages/Login";
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
 

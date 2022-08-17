@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
 import { Button } from 'flowbite-react';
 import { Modal } from 'flowbite-react';
 import { Label } from 'flowbite-react';

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-//import { Link } from 'react-router-dom';
 import { Button } from 'flowbite-react';
 import { Modal } from 'flowbite-react';
 import { Label } from 'flowbite-react';
@@ -7,8 +6,6 @@ import { TextInput } from 'flowbite-react';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
-
-import { Link } from 'react-router-dom';
 
 function Signup(props) {
   const [formEmail, setFormEmail] = useState();
