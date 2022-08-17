@@ -45,7 +45,7 @@ function Nav(item) {
         <Navbar.Brand href="/">
           <img
             src={logo}
-            class="h-8 sm:h-2"
+            class="h-20 sm:h-2"
             alt="Fluffy and Puffy Logo"
           />
         </Navbar.Brand>
