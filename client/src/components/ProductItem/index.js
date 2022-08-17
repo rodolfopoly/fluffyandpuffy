@@ -34,7 +34,7 @@ function ProductItem(item) {
     }
   }
 
-
+  if(Auth.loggedIn()) {
     return (
       <div class="w-full  max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <Link to={`/products/${_id}`}>
@@ -52,5 +52,23 @@ function ProductItem(item) {
       </div>
     );
 }
-
+ else {
+  return (
+  <div class="w-full  max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+  <Link to={`/products/${_id}`}>
+    <img class="p-8 rounded-t-lg max-h-96 min-w-full" src={`/images/${image}`} alt="product image" />
+  </Link>
+  <div class="px-5 pb-5">
+    <a href="#">
+      <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{name}</h5>
+    </a>
+    <div class="flex justify-between items-center">
+      <span class="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
+      <h3>Login to add to cart</h3>
+    </div>
+  </div>
+</div>
+  )
+}
+}
 export default ProductItem;
