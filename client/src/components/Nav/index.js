@@ -10,14 +10,42 @@ import logo from '../../assets/fluffyandpuffy-logo.png'
 import Cart from "../Cart";
 import Auth from "../../utils/auth";
 import Home from "../../pages/Home";
+import loginImage from '../../assets/la duena.PNG'
+import { useStoreContext } from "../../utils/GlobalState";
+import { useQuery } from "@apollo/client";
+import { UPDATE_CURRENT_USER } from "../../utils/actions";
+import { QUERY_USER } from "../../utils/queries";
+import { useEffect } from "react";
+
 function Nav(item) {
+
+  const [state, dispatch] = useStoreContext();
+  const { user } = state;
+  const { data } = useQuery(QUERY_USER);
+  useEffect(() => {
+    if (data) {
+      dispatch({
+        type: UPDATE_CURRENT_USER,
+        user: data.user
+      })
+    }
+  }, [data, dispatch])
+
+  function displayUser() {
+    return user.username;
+  }
+  function displayUserEmail() {
+    return user.email;
+  }
+
+
   if (Auth.loggedIn()) {
     return (
       <Navbar
         fluid={true}
         rounded={true}
       >
-        <Navbar.Brand href="https://flowbite.com/">
+        <Navbar.Brand href="/">
           <img
             src={logo}
             class="sm:h-20"
@@ -28,14 +56,14 @@ function Nav(item) {
           <Dropdown
             arrowIcon={false}
             inline={true}
-            label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
+            label={<Avatar alt="User settings" img={loginImage} rounded={true} />}
           >
             <Dropdown.Header>
-              <span className="block text-sm">
-                Bonnie Green
+              <span className="block font-semibold uppercase text-sm ">
+                {displayUser()}
               </span>
               <span className="block truncate text-sm font-medium">
-                name@flowbite.com
+                {displayUserEmail()}
               </span>
             </Dropdown.Header>
             <Dropdown.Item>
