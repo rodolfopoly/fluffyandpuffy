@@ -23,5 +23,6 @@ As a Bakery Owner SO THAT my clients have the convenience of ordering their yumm
 
 # DEPLOYED LINK
 
+https://peaceful-dusk-99479.herokuapp.com/
 
 # CONTRIBUTORS
