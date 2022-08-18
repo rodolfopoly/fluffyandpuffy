@@ -25,3 +25,8 @@ As a Bakery Owner SO THAT my clients have the convenience of ordering their yumm
 
 
 # CONTRIBUTORS
+- [Rodolfo Cabrera](https://github.com/rodolfopoly)
+- [Brian Hernandez](https://github.com/HdezB)
+- [Megan Silva](https://github.com/megansilva) 
+- [Ezra Katz] (https://github.com/ezravkatz)
+- [Lisette Gonzalez] (https://github.com/lissygonz)
